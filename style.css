@@ -1,0 +1,353 @@
+/* -------- GENERAL -------- */
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(to bottom, #fefaff, #ffffff);
+  text-align: center;
+  color: #333;
+  img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+}
+
+
+/* -------- SOBRE ANIMADO -------- */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.sobre {
+  width: 350px;
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.tapa {
+  width: 100%;
+  height: 90px;
+  background: #84b6f4;
+  position: absolute;
+  top: 0;
+  transform-origin: bottom;
+  transition: transform 1s ease;
+  z-index: 2;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cuerpo {
+  width: 100%;
+  height: 180px;
+  background: #c4dafa;
+  position: absolute;
+  top: 0;
+  border: 2px solid #84b6f4;
+  z-index: 1;
+  padding-top: 100px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.cuerpo p {
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.sobre.abierto .tapa {
+  transform: rotateX(180deg);
+}
+
+/* -------- CARTA PRINCIPAL -------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carta {
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+  margin: 0 auto;
+  animation: fadeIn 1.5s ease-in;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+}
+
+/* -------- TÍTULOS Y TEXTOS -------- */
+.carta h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.2rem;
+  color: #2a3d66;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.carta p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.titulo-seccion {
+  font-size: 1.8rem;
+  color: #2a3d66;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+/* -------- BOTONES Y FRASES -------- */
+button {
+  margin: 10px;
+  padding: 10px 25px;
+  background: #c4dafa;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #a8c8f0;
+}
+
+.oculto {
+  display: none;
+  font-style: italic;
+  color: #555;
+  margin-top: 12px;
+  font-size: 1.05rem;
+}
+
+/* -------- GALERÍA DE FOTOS -------- */
+.galeria {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 15px 0;
+}
+
+.slider img {
+  width: 240px;
+  margin: 0 10px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.slider img:hover {
+  transform: scale(1.05);
+}
+
+/* -------- GALERÍA DE VIDEOS -------- */
+.galeria-videos {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.slider-videos {
+  display: inline-flex;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.slider-videos video {
+  width: 300px;
+  height: 180px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.slider-videos video:hover {
+  transform: scale(1.05);
+}
+
+/* -------- CARTA LARGA -------- */
+.carta-larga {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #c4dafa;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  text-align: left;
+}
+
+.carta-larga p {
+  margin-bottom: 16px;
+}
+
+.confetti-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall 6s infinite ease-in;
+}
+
+.confetti.amarillo { background-color: #ffeb3b; }
+.confetti.rojo { background-color: #f44336; }
+.confetti.azul { background-color: #2196f3; }
+
+.confetti:nth-child(1) { left: 10%; animation-delay: 0s; }
+.confetti:nth-child(2) { left: 20%; animation-delay: 0.5s; }
+.confetti:nth-child(3) { left: 30%; animation-delay: 1s; }
+.confetti:nth-child(4) { left: 40%; animation-delay: 1.5s; }
+.confetti:nth-child(5) { left: 50%; animation-delay: 2s; }
+.confetti:nth-child(6) { left: 60%; animation-delay: 2.5s; }
+.confetti:nth-child(7) { left: 70%; animation-delay: 3s; }
+.confetti:nth-child(8) { left: 80%; animation-delay: 3.5s; }
+.confetti:nth-child(9) { left: 90%; animation-delay: 4s; }
+
+@keyframes fall {
+  0% {
+    top: -10px;
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    top: 110%;
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+.globos-background {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.globo {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.7;
+  animation: subir 12s infinite ease-in;
+  box-shadow: inset -2px -4px 0 rgba(0,0,0,0.1);
+}
+
+.globo::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 10px;
+  background-color: #aaa;
+}
+
+.globo.rojo { background-color: #f44336; }
+.globo.azul { background-color: #2196f3; }
+.globo.amarillo { background-color: #ffeb3b; }
+
+.globo:nth-child(1) { left: 10%; animation-delay: 0s; }
+.globo:nth-child(2) { left: 30%; animation-delay: 2s; }
+.globo:nth-child(3) { left: 50%; animation-delay: 4s; }
+.globo:nth-child(4) { left: 70%; animation-delay: 1s; }
+.globo:nth-child(5) { left: 85%; animation-delay: 3s; }
+.globo:nth-child(6) { left: 95%; animation-delay: 5s; }
+
+@keyframes subir {
+  0% {
+    bottom: -60px;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    bottom: 110%;
+    transform: translateY(-100px) rotate(360deg);
+  }
+}
+/* Ajustes para pantallas pequeñas (celulares) */
+@media (max-width: 600px) {
+  /* Ajustar el contenedor del sobre para que sea más pequeño */
+  .sobre {
+    width: 280px;
+    height: 200px;
+  }
+
+  /* Ajustar la carta principal para que ocupe casi todo el ancho */
+  .carta {
+    padding: 30px 15px;
+    max-width: 90%;
+  }
+
+  /* Texto más legible en pantallas pequeñas */
+  .carta h1 {
+    font-size: 2.2rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.5rem;
+  }
+
+  /* Galería fotos: imágenes más pequeñas */
+  .slider img {
+    width: 180px;
+    margin: 0 5px;
+  }
+
+  /* Galería videos: videos más pequeños */
+  .slider-videos video {
+    width: 220px;
+    height: 140px;
+  }
+
+  /* Carta larga: más compacta */
+  .carta-larga {
+    padding: 20px;
+    max-width: 90%;
+    font-size: 1rem;
+  }
+
+  /* Botones un poco más pequeños */
+  button {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+}
