@@ -54,6 +54,7 @@ function dibujarRuleta() {
   }
 }
 
+
 function girarRuleta() {
   if (girando) return;
   girando = true;
